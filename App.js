@@ -1,20 +1,45 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, FlatList } from 'react-native';
+import {Ecabezado}   from './componentes/Encabezado';
+import {Piepagina} from './componentes/Piedepagina';
+import { useState } from 'react';
+import { Logo } from './componentes/logo';
+import { ElementoFlatList } from './componentes/ElementoFlatList';
+import { Ubicaciones } from './componentes/Pantallas/Ubicaciones';
+import { NavigationContainer } from '@react-navigation/native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator();
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  container:{
+    flex:1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    marginTop: 100,
+    marginLeft: 12,
+    marginRight: 12
+  }
+})
+
+
+
+
+
+export default function App() {
+  return  <NavigationContainer styles={styles.container}>
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={Ubicaciones} />
+      <Tab.Screen name="Paisajes" component={Ubicaciones} />
+    </Tab.Navigator>
+    </NavigationContainer>
+    
+  
+}
+
+
+//solo logre aplicar un metodo de navegacion ing me salian muchos errores 
+
+
+
